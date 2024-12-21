@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'de.cryptosdk'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // https://mvnrepository.com/artifact/dev.samstevens.totp/totp
+    implementation (group: 'dev.samstevens.totp', name: 'totp', version: '1.7.1') {
+        exclude group: 'commons-net', module: 'commons-net'
+    }
+
+    // https://mvnrepository.com/artifact/commons-net/commons-net
+    implementation group: 'commons-net', name: 'commons-net', version: '3.11.1'
+
+
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
